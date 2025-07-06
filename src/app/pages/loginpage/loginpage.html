@@ -1,0 +1,91 @@
+<!-- loginpage.html -->
+<div class="login-page-container">
+  <!-- This div represents the larger dashboard-like background from the image -->
+  <div class="dashboard-background">
+    <!-- Placeholder for the left side content (TNSMART logo, weather info) -->
+    <div class="tnsmart-logo-section">
+      <!-- Placeholder for TNSMART logo -->
+      <div class="tnsmart-logo-placeholder">
+        T
+      </div>
+      <span class="tnsmart-text">TNSMART</span>
+    </div>
+    <div class="about-us-text">About Us</div>
+  </div>
+
+  <!-- Login Form Container - styled to match the image -->
+  <div class="login-form-container">
+    <h2 class="sign-in-title">Sign In</h2>
+
+    <p class="sign-in-description">
+      Enter your username and password to continue
+    </p>
+
+    <form (ngSubmit)="handleSignIn()" class="login-form">
+      <!-- Username Input -->
+      <div class="input-group">
+        <label for="username" class="sr-only">Username</label>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="input-field"
+            placeholder="dp_seoc"
+            [(ngModel)]="username"
+            required
+          />
+          <div class="input-icon-right">
+            <!-- User icon - using a simple SVG for demonstration -->
+            <svg class="icon-svg" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-group">
+        <label for="password" class="sr-only">Password</label>
+        <div class="input-wrapper">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            id="password"
+            name="password"
+            class="input-field"
+            placeholder="••••••••••••"
+            [(ngModel)]="password"
+            required
+          />
+          <div class="input-icon-right cursor-pointer" (click)="togglePasswordVisibility()">
+            <!-- Eye icon for show/hide password -->
+            <svg class="icon-svg" fill="currentColor" viewBox="0 0 20 20">
+              <ng-container *ngIf="showPassword; else hidePasswordIcon">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+              </ng-container>
+              <ng-template #hidePasswordIcon>
+                <path fill-rule="evenodd" d="M18.773 10.384a.75.75 0 000-1.554.75.75 0 000 1.554zm-1.804-.777a.75.75 0 00-.707.707.75.75 0 00.707.707.75.75 0 00.707-.707.75.75 0 00-.707-.707zM10 12a2 2 0 100-4 2 2 0 000 4zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+              </ng-template>
+              <path fill-rule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forgot Password Link -->
+      <div class="forgot-password-link">
+        <a href="#" class="text-link">Forgot password</a>
+      </div>
+
+      <!-- Sign In Button -->
+      <div>
+        <button
+          type="submit"
+          class="sign-in-button"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
